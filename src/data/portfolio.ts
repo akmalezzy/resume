@@ -24,11 +24,20 @@ import {
 
 export const navItems = ["About", "Projects", "Skills", "Experience", "Contact"];
 
+export const contact = {
+  email: "akmalshuhaimi19@gmail.com",
+  phoneDisplay: "019-917 3797",
+  phoneHref: "tel:+60199173797",
+  whatsappHref: "https://wa.me/60199173797",
+  location: "Kota Bharu, Kelantan",
+  resumeHref: "/resume-akmal.pdf"
+};
+
 export const stats = [
   { label: "Major", value: "IT Infrastructure" },
-  { label: "Focus", value: "Cloud + Networks" },
-  { label: "Builds", value: "Apps + IoT" },
-  { label: "Mindset", value: "Support-first" }
+  { label: "Status", value: "Seeking Internship" },
+  { label: "CGPA", value: "2.90 Current" },
+  { label: "Based In", value: "Kota Bharu" }
 ];
 
 export const techOrbit = [
@@ -51,83 +60,115 @@ export const projects = [
     gradient: "from-emerald-300 via-cyan-300 to-sky-500"
   },
   {
-    title: "Barber POS System",
-    subtitle: "Modern appointment and transaction workflow",
+    title: "Data Hackathon 2024",
+    subtitle: "UiTM Shah Alam participation",
     description:
-      "A clean point-of-sale concept for barber operations, focused on faster service tracking, structured records, and a polished user flow for daily shop management.",
-    tags: ["Java", "SQL", "Dashboard", "POS"],
+      "Participated in a data-focused challenge that strengthened problem solving, teamwork, and presentation skills around practical technology use.",
+    tags: ["Data", "Teamwork", "Problem Solving"],
     icon: BadgeCheck,
     gradient: "from-violet-300 via-fuchsia-300 to-rose-400"
   },
   {
-    title: "Notify and Scan",
-    subtitle: "QR Reminder App",
+    title: "KL3IS Futurist Inventor",
+    subtitle: "Bronze Medal",
     description:
-      "A mobile reminder experience that pairs QR scanning with notification workflows, helping users trigger context-aware reminders through a simple scan action.",
-    tags: ["Android", "QR", "Notifications", "UX"],
+      "Earned a bronze medal in an invention and innovation setting, building early confidence in technical ideas and presentation.",
+    tags: ["Innovation", "Presentation", "Bronze"],
     icon: ScanQrCode,
     gradient: "from-amber-200 via-lime-300 to-cyan-300"
   },
   {
-    title: "Electricity Bill Calculator",
-    subtitle: "Android utility for energy cost estimation",
+    title: "Huawei ICT Academy 2024",
+    subtitle: "Technology learning and exposure",
     description:
-      "A practical Android application for calculating electricity usage costs with a direct interface, clear inputs, and a reliable calculation flow.",
-    tags: ["Android Studio", "Java", "Utility", "Mobile"],
+      "Expanded practical awareness of modern ICT tools, infrastructure concepts, and professional technology pathways.",
+    tags: ["ICT", "Infrastructure", "Learning"],
     icon: Zap,
     gradient: "from-blue-300 via-indigo-300 to-cyan-300"
   }
 ];
 
 export const skills = [
-  { name: "Java", level: 86, icon: Code2 },
-  { name: "Python", level: 78, icon: Binary },
-  { name: "JavaScript", level: 82, icon: Braces },
-  { name: "Firebase", level: 80, icon: RadioTower },
-  { name: "Android Studio", level: 85, icon: Smartphone },
-  { name: "Networking", level: 88, icon: Network },
   { name: "IT Support", level: 90, icon: Headphones },
-  { name: "Linux", level: 76, icon: Terminal },
-  { name: "SQL", level: 79, icon: Database },
-  { name: "Git", level: 82, icon: GitBranch },
-  { name: "HTML/CSS", level: 88, icon: Globe2 },
-  { name: "Tailwind", level: 80, icon: Wrench },
-  { name: "Next.js", level: 74, icon: Server }
+  { name: "Networking", level: 86, icon: Network },
+  { name: "Windows", level: 88, icon: Server },
+  { name: "macOS", level: 78, icon: HardDrive },
+  { name: "Linux Basics", level: 72, icon: Terminal },
+  { name: "Android Studio", level: 80, icon: Smartphone },
+  { name: "Firebase", level: 76, icon: RadioTower },
+  { name: "Java", level: 82, icon: Code2 },
+  { name: "Python", level: 74, icon: Binary },
+  { name: "HTML/CSS", level: 82, icon: Globe2 },
+  { name: "JavaScript", level: 76, icon: Braces },
+  { name: "SQL", level: 74, icon: Database },
+  { name: "Git Basics", level: 70, icon: GitBranch },
+  { name: "Power BI / Tableau", level: 66, icon: Wrench }
 ];
 
 export const marqueeSkills = [
-  "Network Design",
-  "Cloud Foundations",
+  "ITSM Basics",
+  "Ticketing Systems",
+  "SLA Awareness",
+  "LAN/WiFi Setup",
+  "Active Directory",
+  "Office 365",
+  "Endpoint Support",
+  "Data Backup",
   "Incident Response",
-  "Mobile Apps",
-  "Firebase",
-  "IoT Telemetry",
-  "Linux Admin",
-  "Secure Systems",
-  "Modern Web"
+  "Cybersecurity Basics",
+  "Remote Support",
+  "Asset Inventory"
 ];
 
 export const experience = [
   {
     role: "IT Support Technician",
     company: "HAZA HOLDINGS SDN BHD",
-    period: "Professional Experience",
+    period: "December 2025 - February 2026 | Banting, Selangor",
     icon: HardDrive,
     points: [
-      "Supported users, devices, and day-to-day IT operations with a calm, service-oriented workflow.",
-      "Troubleshot hardware, software, connectivity, and access issues across operational environments.",
-      "Built practical discipline in documentation, escalation, and maintaining reliable systems."
+      "Provided technical support for over 150 employees across hardware, software, and network issues.",
+      "Installed, configured, and maintained Windows and macOS systems, printers, and peripheral devices.",
+      "Managed user accounts and access permissions through Active Directory and Office 365.",
+      "Monitored system performance, applied updates, supported regular data backups, and assisted department rollouts.",
+      "Educated users on cybersecurity best practices and safe computing habits."
     ]
   },
   {
     role: "Internship",
     company: "Hospital Universiti Sains Malaysia (HUSM)",
-    period: "Internship",
+    period: "August 2021 - February 2022 | Kota Bharu, Kelantan",
     icon: ShieldCheck,
     points: [
-      "Gained exposure to IT support practices inside a high-responsibility healthcare environment.",
-      "Assisted with technical tasks where reliability, clarity, and response time matter.",
-      "Strengthened professional communication while learning from real infrastructure workflows."
+      "Assisted IT staff in troubleshooting and resolving hardware, software, and network issues.",
+      "Supported installation and configuration of computers, printers, and network devices.",
+      "Maintained asset inventory and documentation for IT equipment.",
+      "Monitored system performance, supported routine maintenance checks, and helped with basic backup procedures.",
+      "Provided user support for Microsoft Office, email configuration, and system login issues."
     ]
+  }
+];
+
+export const education = [
+  {
+    school: "Universiti Teknologi MARA (UiTM) Shah Alam",
+    location: "Shah Alam, Selangor",
+    qualification: "Bachelor of Information Technology (Hons.)",
+    period: "March 2023 - Present",
+    details: ["IT Infrastructure major", "CGPA: 2.90 (Current)", "Final Year Project: AgroPulse"]
+  },
+  {
+    school: "Politeknik Balik Pulau (PBU)",
+    location: "Balik Pulau, Pulau Pinang",
+    qualification: "Diploma in Information Technology",
+    period: "June 2019 - February 2022",
+    details: ["Networking major", "CGPA: 3.51"]
+  },
+  {
+    school: "SMK Kota",
+    location: "Kota Bharu, Kelantan",
+    qualification: "Sijil Pelajaran Malaysia (SPM)",
+    period: "January 2014 - December 2018",
+    details: ["School Prefect: January 2017 - December 2018"]
   }
 ];

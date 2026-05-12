@@ -2,13 +2,13 @@
 
 import { BackgroundScene } from "@/components/ui/background-scene";
 import { MagneticButton } from "@/components/ui/magnetic-button";
-import { techOrbit } from "@/data/portfolio";
+import { contact, techOrbit } from "@/data/portfolio";
 import { motion, useMotionTemplate, useMotionValue, useSpring } from "framer-motion";
-import { ArrowDown, Download, Mail, Sparkles } from "lucide-react";
+import { ArrowDown, Download, Mail, MessageCircle, Sparkles } from "lucide-react";
 import Image from "next/image";
 import { MouseEvent } from "react";
 
-const typingWords = ["Infrastructure.", "Mobile Apps.", "IoT Systems.", "Cloud Ideas."];
+const typingWords = ["IT Support.", "Networking.", "Mobile Apps.", "IoT Systems."];
 
 export function Hero() {
   const rotateX = useSpring(useMotionValue(0), { stiffness: 180, damping: 18 });
@@ -35,29 +35,29 @@ export function Hero() {
   };
 
   return (
-    <section id="home" className="relative grid min-h-screen place-items-center overflow-hidden px-4 pb-12 pt-28">
+    <section id="home" className="relative grid min-h-screen place-items-center overflow-hidden px-4 pb-12 pt-24 sm:pt-28">
       <BackgroundScene />
       <div className="pointer-events-none absolute inset-0 -z-20 bg-[radial-gradient(circle_at_var(--mouse-x,50%)_var(--mouse-y,30%),rgba(25,242,255,0.13),transparent_24rem)]" />
       <div className="ambient-ring left-[8%] top-[20%] h-48 w-48 animate-[float_7s_ease-in-out_infinite]" />
       <div className="ambient-ring bottom-[16%] right-[7%] h-72 w-72 animate-[float_9s_ease-in-out_infinite]" />
 
-      <div className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
+      <div className="mx-auto grid w-full max-w-6xl items-center gap-9 lg:grid-cols-[1.08fr_0.92fr] lg:gap-12">
         <div className="relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.9, duration: 0.7 }}
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-200/20 bg-cyan-200/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.32em] text-cyan-100"
+            className="mb-6 inline-flex max-w-full items-center gap-2 rounded-full border border-cyan-200/20 bg-cyan-200/10 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-cyan-100 sm:text-xs sm:tracking-[0.32em]"
           >
             <Sparkles size={14} />
-            Portfolio OS online
+            Resume online
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 34 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 2.05, duration: 0.9, ease: "easeOut" }}
-            className="text-balance text-5xl font-black leading-[0.94] tracking-tight text-white sm:text-7xl lg:text-8xl"
+            className="text-balance text-4xl font-black leading-[0.98] tracking-tight text-white min-[390px]:text-5xl sm:text-7xl lg:text-8xl"
           >
             Muhammad Akmal <span className="text-gradient block">Nazmi</span>
           </motion.h1>
@@ -69,7 +69,7 @@ export function Hero() {
             className="mt-7 max-w-2xl"
           >
             <p className="text-lg font-semibold text-white sm:text-xl">
-              IT Infrastructure Student | Mobile & Web Developer | IoT Enthusiast
+              IT Infrastructure Student | IT Support | Networking | Mobile & IoT
             </p>
             <div className="mt-4 h-8 overflow-hidden text-lg text-cyan-100/80 sm:text-xl">
               <motion.div
@@ -84,8 +84,9 @@ export function Hero() {
               </motion.div>
             </div>
             <p className="mt-5 max-w-xl text-pretty text-base leading-8 text-slate-300">
-              An aspiring IT engineer from UiTM Shah Alam crafting reliable infrastructure, useful apps,
-              and connected systems with a sharp eye for modern technology.
+              Proactive Bachelor of Information Technology (Hons.) student majoring in IT Infrastructure
+              at UiTM Shah Alam, seeking an internship opportunity in IT support, networking, programming,
+              and mobile application development.
             </p>
           </motion.div>
 
@@ -93,7 +94,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 2.42, duration: 0.8 }}
-            className="mt-9 flex flex-col gap-4 sm:flex-row"
+            className="mt-9 grid gap-3 sm:flex sm:flex-row sm:flex-wrap"
           >
             <MagneticButton href="#projects">
               <span className="flex items-center gap-2">
@@ -105,7 +106,12 @@ export function Hero() {
                 Contact Me <Mail size={16} />
               </span>
             </MagneticButton>
-            <MagneticButton href="#" variant="ghost" className="sm:px-5">
+            <MagneticButton href={contact.whatsappHref} variant="ghost" className="sm:px-5">
+              <span className="flex items-center gap-2">
+                WhatsApp <MessageCircle size={16} />
+              </span>
+            </MagneticButton>
+            <MagneticButton href={contact.resumeHref} variant="ghost" className="sm:px-5">
               <span className="flex items-center gap-2">
                 Resume <Download size={16} />
               </span>
@@ -117,7 +123,7 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.9, rotateX: 12 }}
           animate={{ opacity: 1, scale: 1, rotateX: 0 }}
           transition={{ delay: 2.14, duration: 1, ease: "easeOut" }}
-          className="relative mx-auto mt-6 aspect-square w-full max-w-[430px] sm:max-w-[500px] lg:mt-0 lg:max-w-[540px] lg:translate-x-2"
+          className="relative mx-auto mt-2 aspect-square w-full max-w-[340px] min-[390px]:max-w-[380px] sm:max-w-[500px] lg:mt-0 lg:max-w-[540px] lg:translate-x-2"
         >
           <motion.div
             animate={{ scale: [1, 1.06, 1], opacity: [0.58, 0.9, 0.58] }}
@@ -149,7 +155,7 @@ export function Hero() {
             style={{ rotateX, rotateY, transformPerspective: 900 }}
             animate={{ y: [0, -14, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="profile-card scanline glass group absolute inset-9 overflow-hidden rounded-[34px] p-2.5 shadow-[0_34px_120px_rgba(25,242,255,0.18)] sm:inset-14 sm:rounded-[40px] sm:p-3"
+            className="profile-card scanline glass group absolute inset-8 overflow-hidden rounded-[30px] p-2.5 shadow-[0_34px_120px_rgba(25,242,255,0.18)] sm:inset-14 sm:rounded-[40px] sm:p-3"
           >
             <motion.div style={{ background: spotlight }} className="pointer-events-none absolute inset-0 z-20 opacity-80" />
             <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(25,242,255,0.18),transparent_28%,rgba(156,124,255,0.18)_64%,rgba(105,255,200,0.14))]" />
@@ -171,8 +177,8 @@ export function Hero() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#030507] via-transparent to-cyan-200/10" />
               <div className="absolute inset-x-0 bottom-0 p-5">
-                <div className="rounded-2xl border border-white/10 bg-black/36 p-4 backdrop-blur-xl">
-                  <p className="text-xs uppercase tracking-[0.32em] text-cyan-100/65">Muhammad Akmal Nazmi</p>
+                <div className="rounded-2xl border border-white/10 bg-black/36 p-3 backdrop-blur-xl sm:p-4">
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-cyan-100/65 sm:text-xs sm:tracking-[0.32em]">Muhammad Akmal Nazmi</p>
                   <p className="mt-1 text-sm font-semibold text-white">Infrastructure | Mobile | IoT</p>
                 </div>
               </div>
@@ -189,7 +195,7 @@ export function Hero() {
                 key={tech.label}
                 animate={{ y: [0, -12, 0], rotate: [0, 4, 0] }}
                 transition={{ duration: 4 + index * 0.35, repeat: Infinity, ease: "easeInOut" }}
-                className="glass absolute grid h-16 w-16 place-items-center rounded-2xl text-cyan-100"
+                className="glass absolute hidden h-16 w-16 place-items-center rounded-2xl text-cyan-100 min-[430px]:grid"
                 style={{ left: `${x}%`, top: `${y}%` }}
                 title={tech.label}
               >

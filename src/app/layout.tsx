@@ -2,34 +2,36 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Muhammad Akmal Nazmi | IT Infrastructure Portfolio",
+  title: "Muhammad Akmal Nazmi Bin Shuhaimi | IT Infrastructure Resume",
   description:
-    "Premium personal portfolio for Muhammad Akmal Nazmi, an IT Infrastructure student, mobile and web developer, and IoT enthusiast.",
+    "Mobile-friendly web resume for Muhammad Akmal Nazmi Bin Shuhaimi, an IT Infrastructure student seeking internship opportunities.",
   keywords: [
     "Muhammad Akmal Nazmi",
+    "Muhammad Akmal Nazmi Bin Shuhaimi",
     "IT Infrastructure",
     "UiTM Shah Alam",
-    "IT Engineer",
-    "Mobile Developer",
+    "IT Support",
+    "Networking",
+    "Internship",
     "IoT",
-    "Portfolio"
+    "Resume"
   ],
-  authors: [{ name: "Muhammad Akmal Nazmi" }],
-  creator: "Muhammad Akmal Nazmi",
+  authors: [{ name: "Muhammad Akmal Nazmi Bin Shuhaimi" }],
+  creator: "Muhammad Akmal Nazmi Bin Shuhaimi",
   metadataBase: new URL("https://akmalnazmi.vercel.app"),
   openGraph: {
-    title: "Muhammad Akmal Nazmi | IT Infrastructure Portfolio",
+    title: "Muhammad Akmal Nazmi Bin Shuhaimi | IT Infrastructure Resume",
     description:
-      "IT Infrastructure Student, Mobile & Web Developer, and IoT Enthusiast building resilient digital systems.",
+      "IT Infrastructure student seeking internship opportunities in IT support, networking, programming, and mobile development.",
     url: "https://akmalnazmi.vercel.app",
-    siteName: "Akmal Nazmi Portfolio",
+    siteName: "Akmal Nazmi Resume",
     type: "website"
   },
   twitter: {
     card: "summary_large_image",
-    title: "Muhammad Akmal Nazmi | IT Infrastructure Portfolio",
+    title: "Muhammad Akmal Nazmi Bin Shuhaimi | IT Infrastructure Resume",
     description:
-      "IT Infrastructure Student, Mobile & Web Developer, and IoT Enthusiast."
+      "IT Infrastructure student seeking internship opportunities."
   },
   manifest: "/site.webmanifest"
 };

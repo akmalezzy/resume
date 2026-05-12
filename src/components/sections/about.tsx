@@ -1,38 +1,38 @@
 import { SectionHeading } from "@/components/ui/section-heading";
-import { stats } from "@/data/portfolio";
-import { BrainCircuit, Cloud, Network, Shield } from "lucide-react";
+import { education, stats } from "@/data/portfolio";
+import { BrainCircuit, Headphones, Network, Shield } from "lucide-react";
 
 export function About() {
   const pillars = [
-    { icon: Network, label: "Networking", copy: "Designing dependable connectivity and understanding the systems behind uptime." },
-    { icon: Cloud, label: "Cloud", copy: "Exploring scalable platforms, deployment workflows, and modern infrastructure thinking." },
-    { icon: BrainCircuit, label: "AI", copy: "Curious about intelligent tools that improve operations, support, and decision-making." },
-    { icon: Shield, label: "Reliability", copy: "Grounded by IT support experience where clear troubleshooting matters every day." }
+    { icon: Headphones, label: "IT Support", copy: "Troubleshooting hardware, software, network, login, and user access issues with clear communication." },
+    { icon: Network, label: "Networking", copy: "Comfortable with LAN/WiFi setup, IP addressing, DHCP, DNS, and basic ITSM concepts." },
+    { icon: BrainCircuit, label: "Development", copy: "Hands-on with Android Studio, Firebase, Java, Python, HTML/CSS, JavaScript, and SQL." },
+    { icon: Shield, label: "Reliability", copy: "Aware of endpoint protection, regular updates, safe passwords, backups, and service lifecycle practices." }
   ];
 
   return (
     <section id="about" className="section-shell">
       <SectionHeading
         eyebrow="About"
-        title="Infrastructure mindset, developer energy."
-        copy="A professional introduction to the person behind the systems, apps, and experiments."
+        title="IT infrastructure student ready for internship."
+        copy="A web-friendly resume based on hands-on support experience, networking studies, and practical development projects."
       />
 
       <div className="grid gap-5 lg:grid-cols-[0.95fr_1.05fr]">
         <div className="reveal glass rounded-[28px] p-6 sm:p-8">
           <p className="text-lg leading-9 text-slate-200">
-            I am Muhammad Akmal Nazmi, an IT Infrastructure student at UiTM Shah Alam with hands-on
-            exposure in IT support, mobile application development, and IoT-based problem solving. My work
-            sits at the intersection of reliable systems and practical digital products, from troubleshooting
-            real user environments to building apps that make daily tasks more intelligent.
+            I am Muhammad Akmal Nazmi Bin Shuhaimi, a proactive Bachelor of Information Technology
+            (Hons.) student majoring in IT Infrastructure at UiTM Shah Alam. I am seeking an internship
+            opportunity to apply my knowledge in IT support, networking, programming, and mobile
+            application development.
           </p>
           <p className="mt-6 leading-8 text-slate-400">
-            I am especially passionate about networking, cloud technologies, AI-enhanced workflows, and
-            modern development practices. My goal is to grow into an IT engineer who can design, support,
-            and improve systems that people can trust.
+            I am familiar with IT Service Management, ticketing systems, SLA awareness, and service
+            lifecycle processes. My strengths are problem solving, troubleshooting, communication,
+            teamwork, and eagerness to keep growing in IT infrastructure.
           </p>
 
-          <div className="mt-8 grid grid-cols-2 gap-3">
+          <div className="mt-8 grid grid-cols-1 gap-3 min-[420px]:grid-cols-2">
             {stats.map((stat) => (
               <div key={stat.label} className="rounded-3xl border border-white/10 bg-white/[0.04] p-4">
                 <p className="text-xs uppercase tracking-[0.3em] text-cyan-100/60">{stat.label}</p>
@@ -61,6 +61,25 @@ export function About() {
               </div>
             );
           })}
+        </div>
+      </div>
+
+      <div className="reveal mt-6 glass rounded-[28px] p-6 sm:p-8">
+        <h3 className="text-2xl font-black text-white">Education</h3>
+        <div className="mt-6 grid gap-4 lg:grid-cols-3">
+          {education.map((item) => (
+            <article key={item.school} className="rounded-3xl border border-white/10 bg-black/24 p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-100/60">{item.period}</p>
+              <h4 className="mt-3 text-lg font-bold text-white">{item.school}</h4>
+              <p className="mt-1 text-sm text-violet-100/80">{item.location}</p>
+              <p className="mt-4 font-semibold text-slate-200">{item.qualification}</p>
+              <ul className="mt-4 space-y-2 text-sm leading-6 text-slate-400">
+                {item.details.map((detail) => (
+                  <li key={detail}>{detail}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
         </div>
       </div>
     </section>

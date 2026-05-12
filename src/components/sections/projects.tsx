@@ -1,17 +1,17 @@
 "use client";
 
 import { SectionHeading } from "@/components/ui/section-heading";
-import { projects } from "@/data/portfolio";
+import { contact, projects } from "@/data/portfolio";
 import { motion } from "framer-motion";
-import { CodeXml, ExternalLink } from "lucide-react";
+import { Download, ExternalLink } from "lucide-react";
 
 export function Projects() {
   return (
     <section id="projects" className="section-shell">
       <SectionHeading
-        eyebrow="Selected Work"
-        title="Projects with practical engineering DNA."
-        copy="Glass interfaces, technical clarity, and room for real GitHub/demo links when they are ready."
+        eyebrow="Projects & Achievements"
+        title="Practical work from the resume."
+        copy="Final year project, competitions, and learning milestones aligned with the PDF resume."
       />
 
       <div className="grid gap-5 md:grid-cols-2">
@@ -50,11 +50,11 @@ export function Projects() {
                     ))}
                   </div>
                   <div className="mt-7 flex gap-3">
-                    <a href="#" className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-bold text-black transition hover:scale-105">
-                      <CodeXml size={16} /> GitHub
+                    <a href={contact.resumeHref} className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-bold text-black transition hover:scale-105">
+                      <Download size={16} /> Resume
                     </a>
-                    <a href="#" className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-4 py-2 text-sm font-bold text-white transition hover:bg-white/10">
-                      <ExternalLink size={16} /> Demo
+                    <a href="#contact" className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-4 py-2 text-sm font-bold text-white transition hover:bg-white/10">
+                      <ExternalLink size={16} /> Contact
                     </a>
                   </div>
                 </div>

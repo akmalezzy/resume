@@ -10,9 +10,9 @@ export function Skills() {
   return (
     <section id="skills" className="section-shell overflow-hidden">
       <SectionHeading
-        eyebrow="Capabilities"
-        title="A stack built for real-world systems."
-        copy="Balanced between infrastructure fundamentals, support instincts, and modern app development."
+        eyebrow="Skills & Interests"
+        title="Technical skills for IT support and infrastructure."
+        copy="Operating systems, networking, software tools, hardware support, programming, data basics, and IT service practices."
       />
 
       <div className="reveal glass relative overflow-hidden rounded-[30px] p-5 sm:p-7">
