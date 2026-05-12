@@ -1,0 +1,9 @@
+{
+  "name": "Muhammad Akmal Nazmi Portfolio",
+  "short_name": "Akmal Nazmi",
+  "description": "Premium portfolio for Muhammad Akmal Nazmi, IT Infrastructure Student and aspiring IT engineer.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#030507",
+  "theme_color": "#19f2ff"
+}
