@@ -10,8 +10,8 @@ export function Projects() {
     <section id="projects" className="section-shell">
       <SectionHeading
         eyebrow="Projects & Achievements"
-        title="Practical work from the resume."
-        copy="Final year project, competitions, and learning milestones aligned with the PDF resume."
+        title="Practical work with technical value."
+        copy="Selected projects and achievements that show problem solving, infrastructure awareness, and clear communication."
       />
 
       <div className="grid gap-5 md:grid-cols-2">
@@ -22,7 +22,7 @@ export function Projects() {
               key={project.title}
               whileHover={{ y: -10, rotateX: 2, rotateY: index % 2 ? -2 : 2 }}
               transition={{ type: "spring", stiffness: 220, damping: 22 }}
-              className="reveal premium-border rounded-[30px] p-px"
+              className="reveal premium-border mx-auto w-full max-w-xl rounded-[30px] p-px md:max-w-none"
             >
               <div className="group relative h-full overflow-hidden rounded-[29px] border border-white/10 bg-[#070b11]/82 p-5 backdrop-blur-2xl">
                 <div className={`absolute -right-24 -top-24 h-64 w-64 rounded-full bg-gradient-to-br ${project.gradient} opacity-20 blur-3xl transition duration-500 group-hover:opacity-35`} />

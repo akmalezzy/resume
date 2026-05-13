@@ -2,9 +2,7 @@ import {
   BadgeCheck,
   Binary,
   Braces,
-  Cloud,
   Code2,
-  Cpu,
   Database,
   GitBranch,
   Globe2,
@@ -35,54 +33,45 @@ export const contact = {
 
 export const stats = [
   { label: "Major", value: "IT Infrastructure" },
-  { label: "Status", value: "Seeking Internship" },
+  { label: "Status", value: "Internship Ready" },
   { label: "CGPA", value: "2.90 Current" },
   { label: "Based In", value: "Kota Bharu" }
-];
-
-export const techOrbit = [
-  { icon: Network, label: "Networking" },
-  { icon: Cloud, label: "Cloud" },
-  { icon: Cpu, label: "IoT" },
-  { icon: Smartphone, label: "Mobile" },
-  { icon: Terminal, label: "Linux" },
-  { icon: Database, label: "SQL" }
 ];
 
 export const projects = [
   {
     title: "AgroPulse",
-    subtitle: "IoT-Based Smart Farming System with Automated Irrigation",
+    subtitle: "IoT smart farming and irrigation automation",
     description:
-      "A connected smart farming platform designed to monitor soil conditions, automate irrigation decisions, and help growers respond faster with real-time environmental data.",
+      "Built an IoT farming prototype that monitors soil conditions, stores real-time data in Firebase, and automates irrigation decisions to reduce manual checking and improve response time.",
     tags: ["IoT", "Firebase", "Sensors", "Automation"],
     icon: Leaf,
     gradient: "from-emerald-300 via-cyan-300 to-sky-500"
   },
   {
     title: "Data Hackathon 2024",
-    subtitle: "UiTM Shah Alam participation",
+    subtitle: "Data analysis and team problem solving",
     description:
-      "Participated in a data-focused challenge that strengthened problem solving, teamwork, and presentation skills around practical technology use.",
-    tags: ["Data", "Teamwork", "Problem Solving"],
+      "Collaborated in a data-focused challenge to analyze information, identify practical insights, and present a clear solution under time constraints.",
+    tags: ["Data Analysis", "Teamwork", "Presentation"],
     icon: BadgeCheck,
     gradient: "from-violet-300 via-fuchsia-300 to-rose-400"
   },
   {
-    title: "KL3IS Futurist Inventor",
-    subtitle: "Bronze Medal",
+    title: "KL3IS Futurist Inventor 2024",
+    subtitle: "Bronze medal innovation showcase",
     description:
-      "Earned a bronze medal in an invention and innovation setting, building early confidence in technical ideas and presentation.",
-    tags: ["Innovation", "Presentation", "Bronze"],
+      "Presented a technology-based innovation at the Kuala Lumpur International Invention & Innovation Symposium and earned a bronze medal for concept execution.",
+    tags: ["Innovation", "Technical Pitch", "Bronze Medal"],
     icon: ScanQrCode,
     gradient: "from-amber-200 via-lime-300 to-cyan-300"
   },
   {
     title: "Huawei ICT Academy 2024",
-    subtitle: "Technology learning and exposure",
+    subtitle: "ICT infrastructure learning milestone",
     description:
-      "Expanded practical awareness of modern ICT tools, infrastructure concepts, and professional technology pathways.",
-    tags: ["ICT", "Infrastructure", "Learning"],
+      "Completed academy exposure focused on ICT fundamentals, infrastructure concepts, and professional technology pathways relevant to enterprise support roles.",
+    tags: ["ICT", "Infrastructure", "Professional Learning"],
     icon: Zap,
     gradient: "from-blue-300 via-indigo-300 to-cyan-300"
   }
@@ -122,29 +111,29 @@ export const marqueeSkills = [
 
 export const experience = [
   {
-    role: "IT Support Technician",
+    role: "IT Support Technician (Part-Time)",
     company: "HAZA HOLDINGS SDN BHD",
-    period: "December 2025 - February 2026 | Banting, Selangor",
+    period: "Dec 2025 - Feb 2026 | Banting, Selangor",
     icon: HardDrive,
     points: [
-      "Provided technical support for over 150 employees across hardware, software, and network issues.",
-      "Installed, configured, and maintained Windows and macOS systems, printers, and peripheral devices.",
-      "Managed user accounts and access permissions through Active Directory and Office 365.",
-      "Monitored system performance, applied updates, supported regular data backups, and assisted department rollouts.",
-      "Educated users on cybersecurity best practices and safe computing habits."
+      "Supported 150+ users by troubleshooting endpoint, application, printer, and network connectivity issues.",
+      "Installed, configured, and maintained Windows and macOS devices, peripherals, and user workstations.",
+      "Managed user accounts, access permissions, and basic administration tasks in Active Directory and Office 365.",
+      "Applied system updates, monitored device performance, verified backups, and assisted with department software rollouts.",
+      "Promoted safe computing practices including password hygiene, phishing awareness, and secure device usage."
     ]
   },
   {
-    role: "Internship",
+    role: "IT Support Technician Intern",
     company: "Hospital Universiti Sains Malaysia (HUSM)",
-    period: "August 2021 - February 2022 | Kota Bharu, Kelantan",
+    period: "Aug 2021 - Feb 2022 | Kota Bharu, Kelantan",
     icon: ShieldCheck,
     points: [
-      "Assisted IT staff in troubleshooting and resolving hardware, software, and network issues.",
-      "Supported installation and configuration of computers, printers, and network devices.",
-      "Maintained asset inventory and documentation for IT equipment.",
-      "Monitored system performance, supported routine maintenance checks, and helped with basic backup procedures.",
-      "Provided user support for Microsoft Office, email configuration, and system login issues."
+      "Assisted the IT team with first-level troubleshooting for hardware, software, network, and login issues.",
+      "Supported setup and configuration of desktops, printers, network devices, email accounts, and Microsoft Office.",
+      "Maintained IT asset records, updated equipment documentation, and helped prepare devices for users.",
+      "Performed routine maintenance checks, basic backup support, and security compliance tasks under supervision.",
+      "Helped create employee accounts and assign access permissions according to internal procedures."
     ]
   }
 ];
@@ -154,21 +143,26 @@ export const education = [
     school: "Universiti Teknologi MARA (UiTM) Shah Alam",
     location: "Shah Alam, Selangor",
     qualification: "Bachelor of Information Technology (Hons.)",
-    period: "March 2023 - Present",
-    details: ["IT Infrastructure major", "CGPA: 2.90 (Current)", "Final Year Project: AgroPulse"]
+    period: "Mar 2023 - Present",
+    details: [
+      "Major: IT Infrastructure",
+      "Current CGPA: 2.90",
+      "Final Year Project: AgroPulse IoT smart farming system",
+      "Activities: Data Hackathon 2024, Huawei ICT Academy 2024, KL3IS 2024 Bronze Medal"
+    ]
   },
   {
     school: "Politeknik Balik Pulau (PBU)",
     location: "Balik Pulau, Pulau Pinang",
     qualification: "Diploma in Information Technology",
-    period: "June 2019 - February 2022",
-    details: ["Networking major", "CGPA: 3.51"]
+    period: "Jun 2019 - Feb 2022",
+    details: ["Major: Networking", "CGPA: 3.51"]
   },
   {
     school: "SMK Kota",
     location: "Kota Bharu, Kelantan",
     qualification: "Sijil Pelajaran Malaysia (SPM)",
-    period: "January 2014 - December 2018",
-    details: ["School Prefect: January 2017 - December 2018"]
+    period: "Jan 2014 - Dec 2018",
+    details: ["School Prefect: Jan 2017 - Dec 2018"]
   }
 ];
