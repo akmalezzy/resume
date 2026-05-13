@@ -41,7 +41,7 @@ export function LoadingScreen() {
               </div>
             </div>
             <div className="text-center">
-              <p className="text-xs uppercase tracking-[0.6em] text-cyan-100/70">Initializing portfolio</p>
+              <p className="text-xs uppercase tracking-[0.6em] text-cyan-100/70">Resume Online</p>
               <motion.div className="mt-4 h-1 w-64 overflow-hidden rounded-full bg-white/10">
                 <motion.div
                   initial={{ x: "-100%" }}
