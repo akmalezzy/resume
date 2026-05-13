@@ -122,7 +122,7 @@ export function Contact() {
           </div>
           <h3 className="mt-7 text-2xl font-black text-white sm:mt-8 sm:text-3xl">Available for internship opportunities.</h3>
           <p className="mx-auto mt-4 max-w-md leading-7 text-slate-400 sm:leading-8 lg:mx-0">
-            Reach me directly by email or use the combined contact card for phone and WhatsApp.
+            Copy my email, call, WhatsApp, or send a message using the form.
           </p>
 
           <button
@@ -133,7 +133,6 @@ export function Contact() {
           </button>
 
           <div className="mt-4 grid gap-3">
-            <ContactLink href={`mailto:${contact.email}`} icon={Mail} label="Email" value={contact.email} />
             <ContactCard />
             <ContactLink href={contact.resumeHref} icon={Download} label="Resume PDF" value="Open/download resume" />
             <div className="flex items-center justify-center gap-3 rounded-3xl border border-white/10 bg-white/[0.04] px-4 py-3 text-slate-300 lg:justify-start">
@@ -195,7 +194,7 @@ export function Contact() {
       </div>
 
       <footer className="mt-12 border-t border-white/10 pt-7 text-center text-sm text-slate-500 sm:mt-16">
-        &copy; 2026 Muhammad Akmal Nazmi Bin Shuhaimi. Designed for Vercel deployment.
+        &copy; 2026 Muhammad Akmal Nazmi . All Right Reserved.
       </footer>
 
       <AnimatePresence>
