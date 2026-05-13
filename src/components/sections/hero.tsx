@@ -29,7 +29,7 @@ export function Hero() {
             className="mb-5 inline-flex max-w-full items-center justify-center gap-2 rounded-full border border-cyan-200/20 bg-cyan-200/10 px-3.5 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-100 sm:mb-6 sm:px-4 sm:text-xs sm:tracking-[0.32em]"
           >
             <Sparkles size={14} />
-            Internship portfolio
+            Resume Online
           </motion.div>
 
           <motion.h1
