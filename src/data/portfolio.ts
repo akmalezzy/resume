@@ -147,8 +147,7 @@ export const education = [
     details: [
       "Major: IT Infrastructure",
       "Current CGPA: 2.90",
-      "Final Year Project: AgroPulse IoT smart farming system",
-      "Activities: Data Hackathon 2024, Huawei ICT Academy 2024, KL3IS 2024 Bronze Medal"
+      
     ]
   },
   {
