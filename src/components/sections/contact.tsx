@@ -2,11 +2,33 @@
 
 import { SectionHeading } from "@/components/ui/section-heading";
 import { contact } from "@/data/portfolio";
+import emailjs from "@emailjs/browser";
 import { AnimatePresence, motion } from "framer-motion";
 import { Download, Mail, MapPin, MessageCircle, Phone, Send, Sparkles } from "lucide-react";
-import { FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
+
+type FormState = {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+};
+
+type FormErrors = Partial<Record<keyof FormState, string>>;
+
+const initialFormState: FormState = {
+  name: "",
+  email: "",
+  subject: "",
+  message: ""
+};
+
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export function Contact() {
+  const [form, setForm] = useState<FormState>(initialFormState);
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [isSending, setIsSending] = useState(false);
   const [toast, setToast] = useState("");
 
   const notify = (message: string) => {
@@ -19,9 +41,70 @@ export function Contact() {
     notify("Email copied to clipboard");
   };
 
-  const submit = (event: FormEvent<HTMLFormElement>) => {
+  const updateField = (field: keyof FormState) => (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setForm((current) => ({ ...current, [field]: event.target.value }));
+    setErrors((current) => ({ ...current, [field]: undefined }));
+  };
+
+  const validate = () => {
+    const nextErrors: FormErrors = {};
+    const name = form.name.trim();
+    const email = form.email.trim();
+    const message = form.message.trim();
+
+    if (!name) nextErrors.name = "Name is required.";
+    if (!email) {
+      nextErrors.email = "Email is required.";
+    } else if (!emailPattern.test(email)) {
+      nextErrors.email = "Enter a valid email address.";
+    }
+    if (!message) nextErrors.message = "Message is required.";
+
+    setErrors(nextErrors);
+    return Object.keys(nextErrors).length === 0;
+  };
+
+  const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    notify("Message interface primed for integration");
+    if (isSending || !validate()) {
+      notify("Please complete the required fields.");
+      return;
+    }
+
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      notify("EmailJS is not configured yet.");
+      return;
+    }
+
+    setIsSending(true);
+
+    try {
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: form.name.trim(),
+          from_email: form.email.trim(),
+          reply_to: form.email.trim(),
+          subject: form.subject.trim() || "Portfolio contact form message",
+          message: form.message.trim(),
+          to_email: contact.email
+        },
+        { publicKey }
+      );
+
+      setForm(initialFormState);
+      setErrors({});
+      notify("Message sent successfully.");
+    } catch {
+      notify("Message failed to send. Please try again.");
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -62,26 +145,51 @@ export function Contact() {
 
         <form onSubmit={submit} className="reveal glass mx-auto w-full max-w-xl rounded-[26px] p-5 sm:rounded-[30px] sm:p-7 lg:max-w-none">
           <div className="grid gap-4 sm:grid-cols-2">
-            <Field label="Name" placeholder="Your name" />
-            <Field label="Email" placeholder="you@example.com" type="email" />
+            <Field
+              label="Name"
+              placeholder="Your name"
+              value={form.name}
+              onChange={updateField("name")}
+              error={errors.name}
+              autoComplete="name"
+            />
+            <Field
+              label="Email"
+              placeholder="you@example.com"
+              type="email"
+              value={form.email}
+              onChange={updateField("email")}
+              error={errors.email}
+              autoComplete="email"
+            />
           </div>
           <div className="mt-4">
-            <Field label="Subject" placeholder="Project, role, or internship" />
+            <Field
+              label="Subject"
+              placeholder="Project, role, or internship"
+              value={form.subject}
+              onChange={updateField("subject")}
+            />
           </div>
           <label className="mt-4 block">
             <span className="mb-2 block text-sm font-semibold text-slate-200">Message</span>
             <textarea
               rows={6}
+              value={form.message}
+              onChange={updateField("message")}
               placeholder="Tell me about the role or internship opportunity..."
+              aria-invalid={Boolean(errors.message)}
               className="w-full resize-none rounded-3xl border border-white/10 bg-black/24 px-4 py-4 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-200/55 focus:shadow-[0_0_32px_rgba(25,242,255,0.12)]"
             />
+            {errors.message && <span className="mt-2 block text-sm font-semibold text-rose-200">{errors.message}</span>}
           </label>
           <motion.button
             whileHover={{ y: -2, scale: 1.01 }}
             whileTap={{ scale: 0.98 }}
-            className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-6 py-4 font-black text-black"
+            disabled={isSending}
+            className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-6 py-4 font-black text-black transition disabled:cursor-not-allowed disabled:opacity-65"
           >
-            Send Message <Send size={17} />
+            {isSending ? "Sending..." : "Send Message"} <Send size={17} />
           </motion.button>
         </form>
       </div>
@@ -163,15 +271,36 @@ function ContactCard() {
   );
 }
 
-function Field({ label, placeholder, type = "text" }: { label: string; placeholder: string; type?: string }) {
+function Field({
+  label,
+  placeholder,
+  type = "text",
+  value,
+  onChange,
+  error,
+  autoComplete
+}: {
+  label: string;
+  placeholder: string;
+  type?: string;
+  value: string;
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  error?: string;
+  autoComplete?: string;
+}) {
   return (
     <label className="block">
       <span className="mb-2 block text-sm font-semibold text-slate-200">{label}</span>
       <input
         type={type}
+        value={value}
+        onChange={onChange}
         placeholder={placeholder}
+        autoComplete={autoComplete}
+        aria-invalid={Boolean(error)}
         className="h-13 w-full rounded-full border border-white/10 bg-black/24 px-4 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-200/55 focus:shadow-[0_0_32px_rgba(25,242,255,0.12)]"
       />
+      {error && <span className="mt-2 block text-sm font-semibold text-rose-200">{error}</span>}
     </label>
   );
 }
