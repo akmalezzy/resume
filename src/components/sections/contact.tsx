@@ -16,6 +16,12 @@ type FormState = {
 
 type FormErrors = Partial<Record<keyof FormState, string>>;
 
+type EmailJsError = {
+  status?: number;
+  text?: string;
+  message?: string;
+};
+
 const initialFormState: FormState = {
   name: "",
   email: "",
@@ -25,15 +31,36 @@ const initialFormState: FormState = {
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+const buildMailtoHref = (form: FormState) => {
+  const subject = form.subject.trim() || "Portfolio contact form message";
+  const body = [
+    form.message.trim(),
+    "",
+    `From: ${form.name.trim()}`,
+    `Reply to: ${form.email.trim()}`
+  ].join("\n");
+
+  return `mailto:${contact.email}?${new URLSearchParams({ subject, body }).toString()}`;
+};
+
+const getEmailJsErrorMessage = (error: unknown) => {
+  if (!error || typeof error !== "object") {
+    return "";
+  }
+
+  const { status, text, message } = error as EmailJsError;
+  return [status, text || message].filter(Boolean).join(" ");
+};
+
 export function Contact() {
   const [form, setForm] = useState<FormState>(initialFormState);
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSending, setIsSending] = useState(false);
   const [toast, setToast] = useState("");
 
-  const notify = (message: string) => {
+  const notify = (message: string, duration = 2300) => {
     setToast(message);
-    window.setTimeout(() => setToast(""), 2300);
+    window.setTimeout(() => setToast(""), duration);
   };
 
   const copyEmail = async () => {
@@ -76,7 +103,8 @@ export function Contact() {
     const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
     if (!serviceId || !templateId || !publicKey) {
-      notify("EmailJS is not configured yet.");
+      window.location.href = buildMailtoHref(form);
+      notify("Opening your email app to send the message.");
       return;
     }
 
@@ -100,8 +128,12 @@ export function Contact() {
       setForm(initialFormState);
       setErrors({});
       notify("Message sent successfully.");
-    } catch {
-      notify("Message failed to send. Please try again.");
+    } catch (error) {
+      const detail = getEmailJsErrorMessage(error);
+
+      console.error("EmailJS send failed:", error);
+      window.location.href = buildMailtoHref(form);
+      notify(detail ? `EmailJS failed: ${detail}` : "EmailJS failed. Opening your email app instead.", 5000);
     } finally {
       setIsSending(false);
     }
