@@ -124,7 +124,7 @@ export const experience = [
     ]
   },
   {
-    role: "IT Support Technician Intern",
+    role: "IT Support Technician Internship",
     company: "Hospital Universiti Sains Malaysia (HUSM)",
     period: "Aug 2021 - Feb 2022 | Kota Bharu, Kelantan",
     icon: ShieldCheck,
